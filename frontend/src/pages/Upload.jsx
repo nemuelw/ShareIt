@@ -1,30 +1,30 @@
 import React, {useState} from 'react'
+import axios from 'axios'
 
 const Upload = () => {
     const [uploaded, setUploaded] = useState(false)
     const [password, setPassword] = useState('')
     const [link, setLink] = useState('')
 
-    const handleFileUpload = async() => {
-        const files = document.getElementsByName('files').files
+    const handleFileUpload = async(e) => {
+        e.preventDefault()
+        const files = document.getElementsByName('files')[0].files
         const formData = new FormData()
         for(let i=0; i < files.length; i++) {
             formData.append('files', files[i])
         }
         formData.append('password', password)
-        await fetch("http://localhost:1234/upload", {
-            method: 'POST',
-            body: formData
-        }).then(response => {
-            if(response.ok) {
-                console.log(response.json())
-                setLink(window.location.origin + response.hash)
-                setUploaded(true)
-            }
-          }
-        ).catch(err => {
-            console.log(err)
-        })
+
+        try {
+            const response = await axios.post("http://localhost:1234/upload", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
+            console.log(response.data)
+        } catch(err) {
+            console.error(err)
+        }
     }
 
     const copyLink = () => {
@@ -39,7 +39,7 @@ const Upload = () => {
     return (
         <div className='flex items-center justify-center h-screen'>
             <div className='border border-blue-200 rounded-md p-3 w-1/3'>
-                <form>
+                <form onSubmit={handleFileUpload}>
                     <input 
                         type='file'
                         name='files'
@@ -55,13 +55,11 @@ const Upload = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                    <button
+                    <input
                         type='submit'
-                        onClick={handleFileUpload}
+                        value="Upload"
                         className='w-full bg-blue-700 hover:bg-blue-900 text-white py-3 px-3 rounded-md'
-                    >
-                        Upload
-                    </button>
+                    />
                 </form>
                 {
                     uploaded && (
