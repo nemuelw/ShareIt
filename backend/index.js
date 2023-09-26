@@ -9,8 +9,10 @@ app.use(cors())
 app.use('/f', express.static('./uploads'))
 
 const uploadRouter = require('./routes/upload')
+const accessRouter = require('./routes/access')
 
 app.use('/upload', uploadRouter)
+app.use('/access', accessRouter)
 
 app.listen(1234, () => {
     console.log("[*] Server is up and running ...")
