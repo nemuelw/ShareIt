@@ -10,10 +10,12 @@ const fileUploadSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    files: {
-        type: Array,
-        required: true
-    }
+    files: [
+        {
+          name: String,
+          url: String,
+        },
+    ],
 })
 
 module.exports = mongoose.model('FileUpload', fileUploadSchema)
