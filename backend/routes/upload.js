@@ -33,7 +33,7 @@ router.post('/', upload.array('files'), (req, res) => {
     const fileDetails = []
     files.forEach((file) => {
         const name = file.originalname
-        const url = `http://localhost:1234/${file.uniqueFilename}`
+        const url = `http://localhost:1234/f/${file.uniqueFilename}`
         fileDetails.push({
             name: name,
             url: url
