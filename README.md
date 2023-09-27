@@ -18,7 +18,7 @@ File(s) upload success \
 ![img](https://github.com/nemzyxt/ShareIt/blob/main/scrshots/uploaded.png)
 Provide password to access file(s) \
 ![img](https://github.com/nemzyxt/ShareIt/blob/main/scrshots/access.png)
-File(s) access success \
+File(s) access granted \
 ![img](https://github.com/nemzyxt/ShareIt/blob/main/scrshots/accessed.png)
 Open file(s) \
 ![img](https://github.com/nemzyxt/ShareIt/blob/main/scrshots/opened.png)
