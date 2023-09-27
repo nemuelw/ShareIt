@@ -1,6 +1,6 @@
 # ShareIt
 
-Fullstack File sharing app
+Full-stack file sharing app
 
 ## Stack
 
@@ -14,7 +14,7 @@ Fullstack File sharing app
 
 - Clone this repository
 
-````
+```
 git clone https://github.com/nemzyxt/ShareIt
 ```
 
