@@ -6,6 +6,7 @@ require('./database/database')
 
 const app = express()
 app.use(cors())
+app.use(express.json())
 
 // for file downloads
 app.use('/f', express.static(path.join(__dirname, 'uploads')))

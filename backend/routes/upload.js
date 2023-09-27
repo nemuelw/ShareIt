@@ -35,13 +35,14 @@ router.post('/', upload.array('files'), (req, res) => {
     const fileDetails = []
     files.forEach((file) => {
         const name = file.originalname
-        const url = `http://localhost:1234/f/${file.uniqueFilename}`
+        const url = `http://localhost:1234/f/${file.filename}`
         fileDetails.push({
             name: name,
             url: url
         })
     })
     const password = req.body.password
+    console.log(password)
     const hash = generateUniqueString(20)
 
     const fileUpload = new FileUpload({
