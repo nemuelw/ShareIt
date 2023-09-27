@@ -10,6 +10,19 @@ Full-stack file sharing app
 - ExpressJS
 - MongoDB
 
+## Screenshots
+
+Upload file(s) \
+![img](https://github.com/nemzyxt/ShareIt/blob/main/scrshots/upload.png)
+File(s) upload success \
+![img](https://github.com/nemzyxt/ShareIt/blob/main/scrshots/uploaded.png)
+Provide password to access file(s) \
+![img](https://github.com/nemzyxt/ShareIt/blob/main/scrshots/access.png)
+File(s) access success \
+![img](https://github.com/nemzyxt/ShareIt/blob/main/scrshots/accessed.png)
+Open file(s) \
+![img](https://github.com/nemzyxt/ShareIt/blob/main/scrshots/opened.png)
+
 ## Setup
 
 - Clone this repository
