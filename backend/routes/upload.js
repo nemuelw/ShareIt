@@ -1,6 +1,7 @@
 const crypto = require('crypto')
 const express = require('express')
 const multer = require('multer')
+const path = require('path')
 
 const FileUpload = require('../models/FileUpload')
 
@@ -14,8 +15,9 @@ function generateUniqueString(length) {
 }
 
 const storage = multer.diskStorage({
-    destination: (_, _, cb) => {
-        cb(null, '../uploads')
+    destination: (_, file, cb) => {
+        const uploadPath = path.join(__dirname, '..', 'uploads')
+        cb(null, uploadPath)
     },
     filename: (_, file, cb) => {
         const uniqueFilename = Date.now() + '_' + file.originalname
@@ -47,12 +49,16 @@ router.post('/', upload.array('files'), (req, res) => {
         password: password,
         files: fileDetails
     })
-    fileUpload.save(err => {
-        if(err) {
-            return res.status(500).json({message: 'Error saving to database'})
-        }
-        return res.status(200).json({hash: hash})
+    console.log(fileDetails)
+    fileUpload.save()
+        .then(saved => {
+            console.log('hello friend')
+            return res.status(200).json({hash: hash})
+        })
+        .catch(err => {
+            console.log(err)
+            return res.status(500).json({message: err})
+        })        
     })
-})
 
 module.exports = router

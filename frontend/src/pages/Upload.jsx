@@ -21,8 +21,10 @@ const Upload = () => {
                     "Content-Type": "multipart/form-data",
                 },
             })
+            alert(response.status)
             console.log(response.data)
         } catch(err) {
+            alert(err)
             console.error(err)
         }
     }
