@@ -41,7 +41,7 @@ const FileViewer = () => {
         authenticated ? (
           <div className='flex items-center justify-center h-screen'>
             {/* file viewer */}
-            <div className="h-[500px] shadow-2xl border border-blue-500 rounded-lg table-auto p-3 w-2/5 overflow-y-auto">
+            <div className="h-[450px] shadow-2xl border border-blue-500 rounded-lg table-auto p-3 w-2/5 overflow-y-auto">
               <table className='w-full'>
                 <caption className="text-center text-2xl font-semibold mb-2">Files</caption>
                 <tbody>
@@ -53,7 +53,6 @@ const FileViewer = () => {
                           <td className="border px-4 py-2 text-right">
                             <a
                               href={file.url}
-                              target="_blank"
                               rel="noopener noreferrer"
                               className="text-blue-500 hover:text-blue-700"
                               download
