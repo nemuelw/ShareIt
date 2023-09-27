@@ -6,7 +6,8 @@ class Database {
     }
 
     _connect() {
-        mongoose.connect('mongodb://localhost/shareit')
+        const db_string = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+        mongoose.connect(db_string)
             .then(() => {
                 console.log('[*] Connection to DB successful')
             })
