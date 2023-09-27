@@ -42,7 +42,6 @@ router.post('/', upload.array('files'), (req, res) => {
         })
     })
     const password = req.body.password
-    console.log(password)
     const hash = generateUniqueString(20)
 
     const fileUpload = new FileUpload({
@@ -50,10 +49,8 @@ router.post('/', upload.array('files'), (req, res) => {
         password: password,
         files: fileDetails
     })
-    console.log(fileDetails)
     fileUpload.save()
         .then(saved => {
-            console.log('hello friend')
             return res.status(200).json({hash: hash})
         })
         .catch(err => {

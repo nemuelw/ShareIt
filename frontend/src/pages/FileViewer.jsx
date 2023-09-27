@@ -7,14 +7,8 @@ const FileViewer = () => {
   const hash = window.location.pathname.slice(1)
   const [password, setPassword] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
-  const [authenticated, setAuthenticated] = useState(true)
-  const [files, setFiles] = useState([
-    {
-      name: 'File 1',
-      url: 'http://link.to/file1'
-    }
-  ])
-  
+  const [authenticated, setAuthenticated] = useState(false)
+  const [files, setFiles] = useState([])
 
   const accessFiles = async(e) => {
     e.preventDefault()
@@ -30,13 +24,11 @@ const FileViewer = () => {
           "Content-Type": "application/json",
         },
       })
-      if(response.ok) {
+      if(response.status === 200) {
         setAuthenticated(true)
-        // setFiles(response.data.files)
-      } else if(response.status === 401) {
-        setErrorMsg('Invalid password')
+        setFiles(response.data)
       } else {
-        
+        setErrorMsg('Access denied!')
       }
     } catch(err) {
       console.error(err)
@@ -64,6 +56,7 @@ const FileViewer = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               className="text-blue-500 hover:text-blue-700"
+                              download
                             >
                               <FontAwesomeIcon icon={faDownload} />
                             </a>

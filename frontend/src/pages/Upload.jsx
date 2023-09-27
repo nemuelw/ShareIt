@@ -21,10 +21,9 @@ const Upload = () => {
                     "Content-Type": "multipart/form-data",
                 },
             })
-            alert(response.status)
-            console.log(response.data)
+            setLink(window.location.origin + '/' + response.data.hash)
+            setUploaded(true)
         } catch(err) {
-            alert(err)
             console.error(err)
         }
     }
