@@ -31,12 +31,22 @@ Open file(s) \
 git clone https://github.com/nemzyxt/ShareIt
 ```
 
+- Navigate to the frontend folder
+
+```
+cd frontend
+```
 - In the frontend directory, run this command to install dependencies
 
 ```
 npm install
 ```
 
+- Navigate to the backend folder
+
+```
+cd backend
+```
 - In the backend directory, run this command to install dependencies
 
 ```
