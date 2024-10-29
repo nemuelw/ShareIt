@@ -6,7 +6,7 @@ class Database {
     }
 
     _connect() {
-        const db_string = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
+        const db_string = `mongodb+srv://nilaypatel10721:2Bfz5m9mvHS7YRiL@cluster0.r39k1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
         mongoose.connect(db_string)
             .then(() => {
                 console.log('[*] Connection to DB successful')
